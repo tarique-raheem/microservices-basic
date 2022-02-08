@@ -1,0 +1,1 @@
+az spring-cloud app deploy --name transaction-history --jar-path transaction.history\target\transaction.history-0.0.1-SNAPSHOT.jar --jvm-options="-Xms2048m -Xmx2048m" --verbose

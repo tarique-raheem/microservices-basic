@@ -1,0 +1,1 @@
+mvn package -f ./discovery.server/pom.xml -DskipTests

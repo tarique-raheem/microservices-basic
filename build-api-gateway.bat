@@ -1,0 +1,1 @@
+mvn package -f ./api-gateway/pom.xml -DskipTests

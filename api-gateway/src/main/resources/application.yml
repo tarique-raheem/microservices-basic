@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      routes:
+        - id: transaction-history
+        # http:// in URI represents that routing is not client side which should have been lb://
+          uri: http://transaction-history
+          predicates:
+            - Path=/api/th/**
+          filters:
+            - StripPrefix=2
+           

@@ -1,0 +1,1 @@
+az spring-cloud app deploy --name api-gateway --jar-path api-gateway\target\api-gateway-0.0.1-SNAPSHOT.jar --jvm-options="-Xms2048m -Xmx2048m" --verbose
