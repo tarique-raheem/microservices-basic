@@ -3,7 +3,7 @@ package ae.etisalat.ecare.transaction.history.persistence;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "reviews", indexes = { @Index(name = "reviews_unique_idx", unique = true, columnList = "productId,reviewId") })
+@Table(name = "reviews")
 public class ReviewEntity {
 
     @Id @GeneratedValue
@@ -12,20 +12,14 @@ public class ReviewEntity {
     @Version
     private int version;
 
-    private int productId;
-    private int reviewId;
     private String author;
-    private String subject;
     private String content;
 
     public ReviewEntity() {
     }
 
     public ReviewEntity(int productId, int reviewId, String author, String subject, String content) {
-        this.productId = productId;
-        this.reviewId = reviewId;
         this.author = author;
-        this.subject = subject;
         this.content = content;
     }
 
@@ -45,21 +39,6 @@ public class ReviewEntity {
         this.version = version;
     }
 
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getReviewId() {
-        return reviewId;
-    }
-
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
-    }
 
     public String getAuthor() {
         return author;
@@ -69,13 +48,6 @@ public class ReviewEntity {
         this.author = author;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
 
     public String getContent() {
         return content;
