@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dtos.ReviewDTO;
-import com.example.integration.IntegrationController;
 
+import ae.etisalat.ecare.transaction.history.integration.IntegrationController;
 import ae.etisalat.ecare.transaction.history.persistence.ReviewEntity;
 import ae.etisalat.ecare.transaction.history.persistence.ReviewRepository;
 
