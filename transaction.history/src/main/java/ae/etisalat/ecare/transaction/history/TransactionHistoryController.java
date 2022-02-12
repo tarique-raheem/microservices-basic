@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dtos.ReviewDTO;
+import com.example.integration.IntegrationController;
 
 import ae.etisalat.ecare.transaction.history.persistence.ReviewEntity;
 import ae.etisalat.ecare.transaction.history.persistence.ReviewRepository;
@@ -21,6 +22,9 @@ public class TransactionHistoryController {
 	
 	@Autowired
 	ReviewRepository reviewRepository;
+	
+	@Autowired
+	IntegrationController integrationController;
 	
 	
 	@GetMapping(value="/reviews",produces = "application/json")
@@ -47,6 +51,16 @@ public class TransactionHistoryController {
 		
 		return reviews;
 		
+	}
+	
+	@GetMapping(value="/messages/send",produces="application/json")
+	public String sendMessages() {
+		
+		integrationController.sendMessageProduct();
+		integrationController.sendMessageRecommendation();
+		integrationController.sendMessageReview();
+		
+		return "success";
 	}
 	
 	@GetMapping(value = "/transaction-history123",produces = "application/json")
